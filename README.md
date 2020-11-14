@@ -1,46 +1,102 @@
-# Getting Started with Create React App
+# iCasei Front-end Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+All the instructions, architecture and decisions about the project can be found below.
 
-## Available Scripts
+## Language and Framework
 
-In the project directory, you can run:
+Following the challenge recommendation, it was used JavaScript and its framework, React.
 
-### `yarn start`
+## Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **TypeScript**: it types the code at runtime
+- **Axios**: used to access APIs, it gives you the ability to take advantage of JavaScript's _async_ and _await_ for more readable asynchronous code.
+- **React-router-dom**: it provides a better rendering to the different routes inside a SPA.
+- **Material-ui/icons**: an easier way to get svg icons as React components.
+- **Styled Components**: it optimizes the styling experience for React components.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Architecture
 
-### `yarn test`
+This project architecture was created in order to support its growth and keep it organized.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Project Tree**
 
-### `yarn build`
+```
+├── public
+│  ├── favicon.ico
+│  ├── index.html
+│  ├── manifest.json
+│  └── robots.txt
+├── src
+│  ├── components
+│  │  ├── Details
+│  │  │  ├── index.tsx
+│  │  │  └── styles.ts
+│  │  ├── Error
+│  │  │  ├── index.tsx
+│  │  │  └── styles.ts
+│  │  ├── Home
+│  │  │  ├── index.tsx
+│  │  │  └── styles.ts
+│  │  └── VideoCard
+│  │  │  ├── index.tsx
+│  │  │  └── styles.ts
+│  ├── services
+│  │  └── index.ts
+│  ├── styles
+│  │  └── GlobalStyles.ts
+│  ├── App.tsx
+│  ├── env.ts
+│  ├── index.tsx
+│  ├── react-app-env.d.ts
+│  └── types.d.ts
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+├── tsconfig.json
+├── yarn.lock
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The simplified version of the project tree is described below:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **components**: react components used inside the pages and that can be reusable
+- **services**: API request
+- **styles**: global styles to be used in the entire application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project is visually structured by two pages created to be navigated by `react-router-dom`. The Home page has, initially, a search input in the center, which slides up once is submitted. If the API request fails, an error message is exhibited. If not, it's going to result in a list of videos related to the search, with a maximum of 9 videos per page and two buttons at the bottom: previous and next buttons, which are only exhibited if there are previous and next videos.
 
-### `yarn eject`
+Then, once you click on the _Video Details_ button, the application will redirect you to the Details page, which exhibits the video thumbnail, name, likes, dislikes and views, and the channel name.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The entire application was built with the concept of Mobile First and responsive layout.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The state is controlled by _React Hooks_.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Settings
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You must have Git installed in your machine to download the following GitHub repository:
 
-## Learn More
+- https://github.com/danielejsantos/icasei
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Or you can download it by following the command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`git clone https://github.com/danielejsantos/icasei.git`
+
+Then, you must install its dependencies. At the root, run the command:
+
+```
+# with yarn:
+yarn install
+# with npm:
+npm install
+```
+
+## How to run
+
+Navigate to the root folder and run the following command:
+
+```
+# with yarn:
+yarn start
+# with npm:
+npm start
+```
