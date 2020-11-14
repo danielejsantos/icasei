@@ -81,6 +81,8 @@ Or you can download it by following the command:
 
 `git clone https://github.com/danielejsantos/icasei.git`
 
+You must add your YouTube API key in a env.ts file.
+
 Then, you must install its dependencies. At the root, run the command:
 
 ```
